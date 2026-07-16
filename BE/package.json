@@ -1,0 +1,12 @@
+{
+  "name": "coffee-takeaway",
+  "version": "1.0.0",
+  "description": "Coffee TakeAway Backend API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Tran Tin Loc",
+  "license": "ISC"
+}
