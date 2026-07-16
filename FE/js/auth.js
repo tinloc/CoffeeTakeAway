@@ -1,11 +1,48 @@
-// ===============================
+// ======================================
 // Coffee TakeAway Authentication
-// ===============================
+// ======================================
 
 const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
+const message = document.getElementById("message");
+
+//==============================
+// Hiển thị thông báo
+//==============================
+
+function showMessage(text, type = "error") {
+
+    if (!message) return;
+
+    message.textContent = text;
+
+    message.className = type;
+
+}
+
+//==============================
+// Lưu thông tin đăng nhập
+//==============================
+
+function saveLogin(data) {
+
+    localStorage.setItem("token", data.token);
+
+    localStorage.setItem(
+        "user",
+        JSON.stringify(data.user)
+    );
+
+}
+
+//==============================
+// LOGIN
+//==============================
 
 if (loginForm) {
+
     loginForm.addEventListener("submit", login);
+
 }
 
 async function login(e) {
@@ -13,69 +50,63 @@ async function login(e) {
     e.preventDefault();
 
     const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const message = document.getElementById("message");
 
-    message.textContent = "";
+    const password = document.getElementById("password").value.trim();
 
     if (!email || !password) {
-        message.textContent = "Vui lòng nhập đầy đủ thông tin.";
-        return;
+
+        return showMessage("Vui lòng nhập đầy đủ thông tin.");
+
     }
 
     try {
 
-        const result = await apiRequest(API.AUTH.LOGIN, {
+        const result = await apiRequest(
 
-            method: "POST",
+            API.AUTH.LOGIN,
 
-            body: JSON.stringify({
-                email,
-                password
-            })
+            {
 
-        });
+                method: "POST",
 
-        if (result.success) {
+                body: JSON.stringify({
 
-            localStorage.setItem("token", result.data.token);
+                    email,
 
-            localStorage.setItem(
-                "user",
-                JSON.stringify(result.data.user)
-            );
+                    password
 
-            message.style.color = "green";
-            message.textContent = result.message;
+                })
 
-            setTimeout(() => {
+            }
 
-                window.location.href = "index.html";
+        );
 
-            }, 1000);
+        saveLogin(result.data);
 
-        } else {
+        showMessage(result.message, "success");
 
-            message.style.color = "red";
-            message.textContent = result.message;
+        setTimeout(() => {
 
-        }
+            location.href = "index.html";
 
-    } catch (error) {
+        }, 1000);
 
-        console.error(error);
+    } catch (err) {
 
-        message.style.color = "red";
-        message.textContent = "Không thể kết nối tới máy chủ.";
+        showMessage(err.message);
 
     }
 
 }
 
-const registerForm = document.getElementById("registerForm");
+//==============================
+// REGISTER
+//==============================
 
 if (registerForm) {
+
     registerForm.addEventListener("submit", register);
+
 }
 
 async function register(e) {
@@ -83,45 +114,58 @@ async function register(e) {
     e.preventDefault();
 
     const body = {
-        full_name: document.getElementById("full_name").value,
-        email: document.getElementById("email").value,
+
+        full_name: document.getElementById("full_name").value.trim(),
+
+        email: document.getElementById("email").value.trim(),
+
         password: document.getElementById("password").value,
-        phone: document.getElementById("phone").value
+
+        phone: document.getElementById("phone").value.trim()
+
     };
 
-    const message = document.getElementById("message");
+    if (body.full_name.length < 3) {
+
+        return showMessage("Họ tên tối thiểu 3 ký tự.");
+
+    }
+
+    if (body.password.length < 6) {
+
+        return showMessage("Mật khẩu tối thiểu 6 ký tự.");
+
+    }
 
     try {
 
-        const result = await apiRequest(API.AUTH.REGISTER, {
+        const result = await apiRequest(
 
-            method: "POST",
+            API.AUTH.REGISTER,
 
-            body: JSON.stringify(body)
+            {
 
-        });
+                method: "POST",
 
-        if (result.success) {
+                body: JSON.stringify(body)
 
-            message.style.color = "green";
-            message.innerHTML = result.message;
+            }
 
-            setTimeout(() => {
+        );
 
-                location.href = "login.html";
+        showMessage(result.message, "success");
 
-            },1000);
+        setTimeout(() => {
 
-        } else {
+            location.href = "login.html";
 
-            message.style.color = "red";
-            message.innerHTML = result.message;
+        }, 1200);
 
-        }
+    }
 
-    } catch (err) {
+    catch (err) {
 
-        message.innerHTML = "Lỗi kết nối Server.";
+        showMessage(err.message);
 
     }
 

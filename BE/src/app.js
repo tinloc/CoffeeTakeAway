@@ -37,3 +37,29 @@ app.get("/", (req, res) => {
 });
 
 module.exports = app;
+
+const userRoutes = require("./routes/user.routes");
+app.use("/api/users", userRoutes);
+
+const productRoutes = require("./routes/product.routes");
+app.use("/api/products", productRoutes);
+
+const categoryRoutes =
+require("./routes/category.routes");
+app.use(
+    "/api/categories",
+    categoryRoutes
+);
+
+const sizeRoutes =
+require("./routes/size.routes");
+app.use(
+"/api/sizes",
+sizeRoutes
+);
+
+const toppingRoutes = require("./routes/topping.routes");
+app.use("/api/toppings", toppingRoutes);
+
+const cartRoutes = require("./routes/cart.routes");
+app.use("/api/cart", cartRoutes);
