@@ -1,24 +1,25 @@
-const CartService = require("../services/cart.service");
+const cartService = require("../services/cart.service");
 
-// ==========================================
+// =======================================
 // Lấy giỏ hàng
-// ==========================================
+// GET /api/cart
+// =======================================
 exports.getCart = async (req, res) => {
 
     try {
 
-        const data = await CartService.getCart(
+        const cart = await cartService.getCart(
             req.user.user_id
         );
 
         res.json({
             success: true,
-            data
+            data: cart
         });
 
     } catch (err) {
 
-        res.status(500).json({
+        res.status(400).json({
             success: false,
             message: err.message
         });
@@ -27,22 +28,22 @@ exports.getCart = async (req, res) => {
 
 };
 
-// ==========================================
+// =======================================
 // Thêm sản phẩm
-// ==========================================
+// POST /api/cart/add
+// =======================================
 exports.addToCart = async (req, res) => {
 
     try {
 
-        const data = await CartService.addToCart(
+        const result = await cartService.addToCart(
             req.user.user_id,
             req.body
         );
 
         res.json({
             success: true,
-            message: "Đã thêm vào giỏ hàng.",
-            data
+            message: result.message
         });
 
     } catch (err) {
@@ -56,21 +57,25 @@ exports.addToCart = async (req, res) => {
 
 };
 
-// ==========================================
+// =======================================
 // Cập nhật số lượng
-// ==========================================
-exports.updateCartItem = async (req, res) => {
+// PUT /api/cart/item/:id
+// =======================================
+exports.updateQuantity = async (req, res) => {
 
     try {
 
-        await CartService.updateCartItem(
+        const result = await cartService.updateQuantity(
+
             req.params.id,
+
             req.body.quantity
+
         );
 
         res.json({
             success: true,
-            message: "Cập nhật thành công."
+            message: result.message
         });
 
     } catch (err) {
@@ -84,20 +89,21 @@ exports.updateCartItem = async (req, res) => {
 
 };
 
-// ==========================================
+// =======================================
 // Xóa sản phẩm
-// ==========================================
-exports.deleteCartItem = async (req, res) => {
+// DELETE /api/cart/item/:id
+// =======================================
+exports.removeItem = async (req, res) => {
 
     try {
 
-        await CartService.deleteCartItem(
+        const result = await cartService.removeItem(
             req.params.id
         );
 
         res.json({
             success: true,
-            message: "Đã xóa sản phẩm."
+            message: result.message
         });
 
     } catch (err) {
@@ -111,20 +117,21 @@ exports.deleteCartItem = async (req, res) => {
 
 };
 
-// ==========================================
-// Xóa toàn bộ
-// ==========================================
+// =======================================
+// Xóa toàn bộ giỏ hàng
+// DELETE /api/cart/clear
+// =======================================
 exports.clearCart = async (req, res) => {
 
     try {
 
-        await CartService.clearCart(
+        const result = await cartService.clearCart(
             req.user.user_id
         );
 
         res.json({
             success: true,
-            message: "Đã xóa toàn bộ giỏ hàng."
+            message: result.message
         });
 
     } catch (err) {

@@ -1,17 +1,54 @@
 const express = require("express");
+
 const router = express.Router();
 
-const controller = require("../controllers/cart.controller");
+const cartController = require("../controllers/cart.controller");
+
 const auth = require("../middleware/auth.middleware");
 
-router.get("/", auth, controller.getCart);
+// =======================================
+// Lấy giỏ hàng
+// =======================================
+router.get(
+    "/",
+    auth,
+    cartController.getCart
+);
 
-router.post("/add", auth, controller.addToCart);
+// =======================================
+// Thêm sản phẩm vào giỏ
+// =======================================
+router.post(
+    "/add",
+    auth,
+    cartController.addToCart
+);
 
-router.put("/item/:id", auth, controller.updateCartItem);
+// =======================================
+// Cập nhật số lượng
+// =======================================
+router.put(
+    "/item/:id",
+    auth,
+    cartController.updateQuantity
+);
 
-router.delete("/item/:id", auth, controller.deleteCartItem);
+// =======================================
+// Xóa một sản phẩm
+// =======================================
+router.delete(
+    "/item/:id",
+    auth,
+    cartController.removeItem
+);
 
-router.delete("/clear", auth, controller.clearCart);
+// =======================================
+// Xóa toàn bộ giỏ hàng
+// =======================================
+router.delete(
+    "/clear",
+    auth,
+    cartController.clearCart
+);
 
 module.exports = router;

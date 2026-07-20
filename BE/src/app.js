@@ -63,3 +63,9 @@ app.use("/api/toppings", toppingRoutes);
 
 const cartRoutes = require("./routes/cart.routes");
 app.use("/api/cart", cartRoutes);
+
+const orderRoutes = require("./routes/order.routes");
+app.use("/api/orders", orderRoutes);
+
+const adminRoutes = require("./routes/admin.routes");
+app.use("/api/admin", adminRoutes);
