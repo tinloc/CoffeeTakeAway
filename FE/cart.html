@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee TakeAway | Giỏ hàng</title>
+    <meta name="description" content="Xem và quản lý giỏ hàng của bạn tại Coffee TakeAway.">
+    <link rel="icon" type="image/png" href="assets/images/logo/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+    <!-- SEARCH OVERLAY -->
+    <div class="search-overlay" id="searchOverlay">
+        <button class="search-close" id="closeSearch" type="button" title="Đóng tìm kiếm" aria-label="Đóng tìm kiếm">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="search-box-large">
+            <form id="searchForm" autocomplete="off">
+                <input type="search" id="searchInput" name="search" placeholder="Tìm kiếm đồ uống..." aria-label="Tìm kiếm sản phẩm" autocomplete="off">
+                <button type="submit" title="Tìm kiếm" aria-label="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-left">
+                <a href="tel:19001234" title="Gọi điện" aria-label="Gọi điện đến Coffee TakeAway">
+                    <i class="fa-solid fa-phone"></i><span>1900 1234</span>
+                </a>
+                <a href="mailto:coffeetakeaway@gmail.com" title="Email" aria-label="Gửi email">
+                    <i class="fa-solid fa-envelope"></i><span>coffeetakeaway@gmail.com</span>
+                </a>
+            </div>
+            <div class="topbar-right">
+                <a href="#" title="Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" title="Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" title="TikTok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo" title="Coffee TakeAway" aria-label="Trang chủ Coffee TakeAway">
+                    <img src="assets/images/logo/logo.png" alt="Coffee TakeAway Logo">
+                    <span>Coffee TakeAway</span>
+                </a>
+                <nav class="navbar" aria-label="Main Navigation">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Trang chủ</a></li>
+                        <li class="nav-item"><a href="menu.html" class="nav-link">Thực đơn</a></li>
+                        <li class="nav-item"><a href="product.html" class="nav-link">Sản phẩm</a></li>
+                        <li class="nav-item"><a href="index.html#promotion" class="nav-link">Khuyến mãi</a></li>
+                        <li class="nav-item"><a href="index.html#about" class="nav-link">Giới thiệu</a></li>
+                        <li class="nav-item"><a href="index.html#contact" class="nav-link">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="header-action" id="searchBtn" type="button" title="Tìm kiếm" aria-label="Mở tìm kiếm">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <a href="cart.html" class="header-action" title="Giỏ hàng" aria-label="Giỏ hàng">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="action-badge" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="header-action" title="Tài khoản" aria-label="Đăng nhập">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                    <button class="menu-toggle" id="menuToggle" type="button" title="Mở menu" aria-label="Mở menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="mainContent">
+
+        <!-- PAGE HEADER -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Giỏ hàng</h1>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Trang chủ</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>Giỏ hàng</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- CART -->
+        <section class="cart-section section">
+            <div class="container">
+
+                <!-- EMPTY CART -->
+                <div class="cart-empty d-none" id="cartEmpty">
+                    <div class="cart-empty-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <h3>Giỏ hàng của bạn đang trống</h3>
+                    <p>Hãy thêm sản phẩm vào giỏ hàng để tiếp tục.</p>
+                    <a href="menu.html" class="btn btn-primary">
+                        <i class="fa-solid fa-mug-hot"></i> Khám phá thực đơn
+                    </a>
+                </div>
+
+                <!-- CART LAYOUT -->
+                <div class="cart-layout" id="cartLayout">
+
+                    <!-- CART TABLE -->
+                    <div class="cart-table-wrapper">
+                        <table class="cart-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-product">Sản phẩm</th>
+                                    <th class="col-price">Đơn giá</th>
+                                    <th class="col-qty">Số lượng</th>
+                                    <th class="col-total">Thành tiền</th>
+                                    <th class="col-action"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartTableBody">
+                                <!-- JS render cart items -->
+                            </tbody>
+                        </table>
+
+                        <div class="cart-actions">
+                            <a href="menu.html" class="btn btn-outline-primary btn-sm">
+                                <i class="fa-solid fa-arrow-left"></i> Tiếp tục mua
+                            </a>
+                            <button class="btn btn-sm" id="clearCartBtn" type="button">
+                                <i class="fa-solid fa-trash"></i> Xoá tất cả
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CART SUMMARY -->
+                    <aside class="cart-summary-panel">
+                        <h3 class="summary-title">Tóm tắt đơn hàng</h3>
+
+                        <div class="summary-rows">
+                            <div class="summary-row">
+                                <span>Tạm tính</span>
+                                <span id="cartSubtotal">0đ</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Phí giao hàng</span>
+                                <span class="text-success">Miễn phí</span>
+                            </div>
+                            <div class="summary-row summary-discount d-none" id="discountRow">
+                                <span>Giảm giá</span>
+                                <span id="cartDiscount" class="text-danger">-0đ</span>
+                            </div>
+                        </div>
+
+                        <!-- COUPON -->
+                        <div class="coupon-form">
+                            <input type="text" id="couponInput" placeholder="Nhập mã giảm giá" aria-label="Mã giảm giá">
+                            <button class="btn btn-outline-primary btn-sm" id="applyCoupon" type="button">Áp dụng</button>
+                        </div>
+                        <p class="coupon-msg d-none" id="couponMsg"></p>
+
+                        <div class="summary-total">
+                            <span>Tổng cộng</span>
+                            <span id="cartTotal">0đ</span>
+                        </div>
+
+                        <a href="checkout.html" class="btn btn-primary w-100" id="checkoutBtn">
+                            Thanh toán <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="assets/images/logo/logo.png" alt="Coffee TakeAway">
+                        <h3>Coffee TakeAway</h3>
+                    </div>
+                    <p class="footer-desc">Mang đến trải nghiệm thưởng thức cà phê chất lượng với dịch vụ nhanh chóng và chuyên nghiệp.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Điều hướng</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Trang chủ</a>
+                        <a href="menu.html">Thực đơn</a>
+                        <a href="product.html">Sản phẩm</a>
+                        <a href="index.html#about">Giới thiệu</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Hỗ trợ</h4>
+                    <div class="footer-links">
+                        <a href="#">Điều khoản</a>
+                        <a href="#">Chính sách</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Liên hệ</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Liên hệ</h4>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>1900 1234</span></div>
+                        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>coffeetakeaway@gmail.com</span></div>
+                        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>TP. Hồ Chí Minh</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-inner">
+                    <p>© 2026 Coffee TakeAway. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" title="Lên đầu trang" aria-label="Lên đầu trang">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/cart.js"></script>
+</body>
+</html>

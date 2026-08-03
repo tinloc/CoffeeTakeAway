@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee TakeAway | Thanh toán</title>
+    <meta name="description" content="Hoàn tất đặt hàng tại Coffee TakeAway - điền thông tin giao hàng và chọn phương thức thanh toán.">
+    <link rel="icon" type="image/png" href="assets/images/logo/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-left">
+                <a href="tel:19001234" title="Gọi điện" aria-label="Gọi điện đến Coffee TakeAway">
+                    <i class="fa-solid fa-phone"></i><span>1900 1234</span>
+                </a>
+                <a href="mailto:coffeetakeaway@gmail.com" title="Email" aria-label="Gửi email">
+                    <i class="fa-solid fa-envelope"></i><span>coffeetakeaway@gmail.com</span>
+                </a>
+            </div>
+            <div class="topbar-right">
+                <a href="#" title="Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" title="Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" title="TikTok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo" title="Coffee TakeAway" aria-label="Trang chủ Coffee TakeAway">
+                    <img src="assets/images/logo/logo.png" alt="Coffee TakeAway Logo">
+                    <span>Coffee TakeAway</span>
+                </a>
+                <nav class="navbar" aria-label="Main Navigation">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Trang chủ</a></li>
+                        <li class="nav-item"><a href="menu.html" class="nav-link">Thực đơn</a></li>
+                        <li class="nav-item"><a href="product.html" class="nav-link">Sản phẩm</a></li>
+                        <li class="nav-item"><a href="index.html#promotion" class="nav-link">Khuyến mãi</a></li>
+                        <li class="nav-item"><a href="index.html#about" class="nav-link">Giới thiệu</a></li>
+                        <li class="nav-item"><a href="index.html#contact" class="nav-link">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="cart.html" class="header-action" title="Giỏ hàng" aria-label="Giỏ hàng">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="action-badge" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="header-action" title="Tài khoản" aria-label="Đăng nhập">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                    <button class="menu-toggle" id="menuToggle" type="button" title="Mở menu" aria-label="Mở menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="mainContent">
+
+        <!-- PAGE HEADER -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Thanh toán</h1>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Trang chủ</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <a href="cart.html">Giỏ hàng</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>Thanh toán</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- CHECKOUT -->
+        <section class="checkout-section section">
+            <div class="container">
+
+                <!-- STEPS -->
+                <div class="checkout-steps">
+                    <div class="checkout-step done">
+                        <span class="step-num"><i class="fa-solid fa-check"></i></span>
+                        <span class="step-label">Giỏ hàng</span>
+                    </div>
+                    <div class="checkout-step-line done"></div>
+                    <div class="checkout-step active">
+                        <span class="step-num">2</span>
+                        <span class="step-label">Thông tin</span>
+                    </div>
+                    <div class="checkout-step-line"></div>
+                    <div class="checkout-step">
+                        <span class="step-num">3</span>
+                        <span class="step-label">Xác nhận</span>
+                    </div>
+                </div>
+
+                <div class="checkout-layout">
+
+                    <!-- FORM BÊN TRÁI -->
+                    <div class="checkout-form-wrapper">
+
+                        <!-- THÔNG TIN GIAO HÀNG -->
+                        <div class="checkout-block">
+                            <h3 class="checkout-block-title">
+                                <i class="fa-solid fa-location-dot"></i> Thông tin giao hàng
+                            </h3>
+                            <form id="checkoutForm" novalidate>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="fullName">Họ và tên *</label>
+                                        <input class="form-control" type="text" id="fullName" placeholder="Nguyễn Văn A" required autocomplete="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="phone">Số điện thoại *</label>
+                                        <input class="form-control" type="tel" id="phone" placeholder="0901 234 567" required autocomplete="tel">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="address">Địa chỉ giao hàng *</label>
+                                    <input class="form-control" type="text" id="address" placeholder="Số nhà, tên đường..." required autocomplete="street-address">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="district">Quận / Huyện *</label>
+                                        <input class="form-control" type="text" id="district" placeholder="Quận 1" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="city">Thành phố *</label>
+                                        <input class="form-control" type="text" id="city" placeholder="TP. Hồ Chí Minh" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="note">Ghi chú</label>
+                                    <textarea class="form-control" id="note" rows="3" placeholder="Ít đường, nhiều đá, không sữa..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- PHƯƠNG THỨC THANH TOÁN -->
+                        <div class="checkout-block">
+                            <h3 class="checkout-block-title">
+                                <i class="fa-solid fa-credit-card"></i> Phương thức thanh toán
+                            </h3>
+                            <div class="payment-list">
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="cod" checked>
+                                    <div class="payment-option-inner">
+                                        <i class="fa-solid fa-money-bill-wave"></i>
+                                        <div>
+                                            <strong>Thanh toán khi nhận hàng (COD)</strong>
+                                            <p>Trả tiền mặt khi nhận được đơn hàng</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="bank">
+                                    <div class="payment-option-inner">
+                                        <i class="fa-solid fa-building-columns"></i>
+                                        <div>
+                                            <strong>Chuyển khoản ngân hàng</strong>
+                                            <p>Chuyển khoản trước khi giao hàng</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary w-100" id="placeOrderBtn" type="button">
+                            <i class="fa-solid fa-check-circle"></i> Xác nhận đặt hàng
+                        </button>
+                        <p class="checkout-msg d-none" id="checkoutMsg"></p>
+
+                    </div>
+
+                    <!-- TÓM TẮT ĐƠN HÀNG -->
+                    <aside class="checkout-summary">
+                        <h3 class="summary-title">Đơn hàng của bạn</h3>
+                        <div class="checkout-items" id="checkoutItems">
+                            <!-- JS render items -->
+                        </div>
+                        <div class="summary-rows">
+                            <div class="summary-row">
+                                <span>Tạm tính</span>
+                                <span id="checkoutSubtotal">0đ</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Phí giao hàng</span>
+                                <span class="text-success">Miễn phí</span>
+                            </div>
+                        </div>
+                        <div class="summary-total">
+                            <span>Tổng cộng</span>
+                            <span id="checkoutTotal">0đ</span>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="assets/images/logo/logo.png" alt="Coffee TakeAway">
+                        <h3>Coffee TakeAway</h3>
+                    </div>
+                    <p class="footer-desc">Mang đến trải nghiệm thưởng thức cà phê chất lượng với dịch vụ nhanh chóng và chuyên nghiệp.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Điều hướng</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Trang chủ</a>
+                        <a href="menu.html">Thực đơn</a>
+                        <a href="product.html">Sản phẩm</a>
+                        <a href="index.html#about">Giới thiệu</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Hỗ trợ</h4>
+                    <div class="footer-links">
+                        <a href="#">Điều khoản</a>
+                        <a href="#">Chính sách</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Liên hệ</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Liên hệ</h4>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>1900 1234</span></div>
+                        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>coffeetakeaway@gmail.com</span></div>
+                        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>TP. Hồ Chí Minh</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-inner">
+                    <p>© 2026 Coffee TakeAway. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/cart.js"></script>
+</body>
+</html>

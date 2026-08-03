@@ -1,72 +1,62 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
-    <title>Đăng ký</title>
-
-    <link rel="stylesheet" href="css/auth.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee TakeAway | Đăng ký</title>
+    <meta name="description" content="Tạo tài khoản mới tại Coffee TakeAway.">
+    <link rel="icon" type="image/png" href="assets/images/logo/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
 </head>
-
 <body>
 
-<div class="login-container">
+    <div class="login-container">
+        <div class="login-card">
 
-<div class="login-card">
+            <div class="logo">
+                <img src="assets/images/logo/logo.png" alt="Coffee TakeAway Logo" onerror="this.style.display='none'">
+                <h1>Coffee TakeAway</h1>
+                <p>Tạo tài khoản mới</p>
+            </div>
 
-<h2>Đăng ký tài khoản</h2>
+            <form id="registerForm" novalidate>
 
-<form id="registerForm">
+                <div class="form-group">
+                    <label for="full_name">Họ và tên</label>
+                    <input type="text" id="full_name" placeholder="Nguyễn Văn A" required autocomplete="name">
+                </div>
 
-<input
-type="text"
-id="full_name"
-placeholder="Họ và tên"
-required>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="email@example.com" required autocomplete="email">
+                </div>
 
-<input
-type="email"
-id="email"
-placeholder="Email"
-required>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" placeholder="Tối thiểu 6 ký tự" required autocomplete="new-password">
+                </div>
 
-<input
-type="password"
-id="password"
-placeholder="Mật khẩu"
-required>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" id="phone" placeholder="0901 234 567" autocomplete="tel">
+                </div>
 
-<input
-type="text"
-id="phone"
-placeholder="Số điện thoại">
+                <button type="submit" class="btn-login">Đăng ký</button>
 
-<button type="submit">
+            </form>
 
-Đăng ký
+            <p id="message" class="message"></p>
 
-</button>
+            <div class="bottom-link">
+                Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a>
+            </div>
 
-</form>
+        </div>
+    </div>
 
-<p id="message"></p>
-<p id="message" class="message"></p>
-<p>
-
-<a href="login.html">
-
-Đã có tài khoản? Đăng nhập
-
-</a>
-
-</p>
-
-</div>
-
-</div>
-
-<script src="js/api.js"></script>
-<script src="js/auth.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
 
 </body>
 </html>

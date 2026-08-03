@@ -1,70 +1,52 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee TakeAway | Đăng nhập</title>
-    
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/auth.css">
+    <meta name="description" content="Đăng nhập vào tài khoản Coffee TakeAway của bạn.">
+    <link rel="icon" type="image/png" href="assets/images/logo/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
 </head>
-
 <body>
 
     <div class="login-container">
-
         <div class="login-card">
 
             <div class="logo">
-                <h1>☕ Coffee TakeAway</h1>
+                <img src="assets/images/logo/logo.png" alt="Coffee TakeAway Logo" onerror="this.style.display='none'">
+                <h1>Coffee TakeAway</h1>
                 <p>Đăng nhập để tiếp tục</p>
             </div>
 
-            <form id="loginForm">
+            <form id="loginForm" novalidate>
 
                 <div class="form-group">
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Nhập email"
-                        required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Nhập email" required autocomplete="email">
                 </div>
 
                 <div class="form-group">
-                    <label>Mật khẩu</label>
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Nhập mật khẩu"
-                        required>
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" placeholder="Nhập mật khẩu" required autocomplete="current-password">
                 </div>
 
-                <button type="submit" class="btn-login">
-                    Đăng nhập
-                </button>
+                <button type="submit" class="btn-login">Đăng nhập</button>
 
             </form>
 
-            <p id="message"></p>
             <p id="message" class="message"></p>
+
             <div class="bottom-link">
-                Chưa có tài khoản?
-
-                <a href="register.html">
-                    Đăng ký ngay
-                </a>
-
+                Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
             </div>
 
         </div>
-
     </div>
 
-    <script src="js/api.js"></script>
-    <script src="js/auth.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
 
 </body>
-
 </html>

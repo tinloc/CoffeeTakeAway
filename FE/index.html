@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Coffee TakeAway | Cà phê mang đi chất lượng</title>
+    <meta name="description" content="Coffee TakeAway - Đặt cà phê trực tuyến nhanh chóng, đa dạng đồ uống, giao hàng tận nơi.">
+    <meta name="keywords" content="Coffee, Coffee TakeAway, Cà phê, Trà sữa, Đồ uống, Take Away">
+    <meta name="author" content="Coffee TakeAway">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Coffee TakeAway">
+    <meta property="og:description" content="Đặt đồ uống trực tuyến nhanh chóng và tiện lợi">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/logo/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo/favicon.png">
+
+    <!-- Google Fonts: Inter (nội dung) + Fraunces (tiêu đề, tạo cá tính riêng cho thương hiệu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <img src="assets/images/logo/logo.png" class="preloader-logo" alt="Coffee TakeAway Logo">
+            <div class="preloader-spinner"></div>
+            <p>Đang tải...</p>
+        </div>
+    </div>
+
+    <!-- SEARCH OVERLAY -->
+    <div class="search-overlay" id="searchOverlay">
+        <button class="search-close" id="closeSearch" type="button" title="Đóng tìm kiếm" aria-label="Đóng tìm kiếm">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="search-box-large">
+            <form id="searchForm" autocomplete="off">
+                <input type="search" id="searchInput" name="search" placeholder="Tìm kiếm đồ uống..." aria-label="Tìm kiếm sản phẩm" autocomplete="off">
+                <button type="submit" title="Tìm kiếm" aria-label="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-left">
+                <a href="tel:19001234" title="Gọi điện" aria-label="Gọi điện đến Coffee TakeAway">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>1900 1234</span>
+                </a>
+                <a href="mailto:coffeetakeaway@gmail.com" title="Email" aria-label="Gửi email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>coffeetakeaway@gmail.com</span>
+                </a>
+            </div>
+            <div class="topbar-right">
+                <a href="#" title="Facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" title="Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" title="TikTok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo" title="Coffee TakeAway" aria-label="Trang chủ Coffee TakeAway">
+                    <img src="assets/images/logo/logo.png" alt="Coffee TakeAway Logo">
+                    <span>Coffee TakeAway</span>
+                </a>
+
+                <nav class="navbar" aria-label="Main Navigation">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Trang chủ</a></li>
+                        <li class="nav-item"><a href="menu.html" class="nav-link">Thực đơn</a></li>
+                        <li class="nav-item"><a href="product.html" class="nav-link">Sản phẩm</a></li>
+                        <li class="nav-item"><a href="#promotion" class="nav-link">Khuyến mãi</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">Giới thiệu</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Liên hệ</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="header-action" id="searchBtn" type="button" title="Tìm kiếm" aria-label="Mở tìm kiếm">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <a href="#" class="header-action" title="Yêu thích" aria-label="Danh sách yêu thích">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="action-badge">0</span>
+                    </a>
+                    <a href="cart.html" class="header-action" title="Giỏ hàng" aria-label="Giỏ hàng">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="action-badge" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="header-action" title="Tài khoản" aria-label="Đăng nhập">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                    <button class="menu-toggle" id="menuToggle" type="button" title="Mở menu" aria-label="Mở menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="mainContent">
+
+        <!-- HERO -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-slider" id="heroSlider">
+                    <div class="hero-content">
+                        <span class="hero-subtitle">☕ Welcome to Coffee TakeAway</span>
+                        <h1 class="hero-title">
+                            Thưởng thức cà phê nguyên chất
+                            <br>
+                            mọi lúc, mọi nơi
+                        </h1>
+                        <p class="hero-description">
+                            Khám phá hàng trăm loại cà phê, trà và đồ uống
+                            được pha chế từ những nguyên liệu chất lượng,
+                            giao hàng nhanh chóng và tiện lợi.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="menu.html" class="btn btn-primary" title="Xem thực đơn" aria-label="Xem thực đơn">Đặt ngay</a>
+                            <a href="#bestSeller" class="btn btn-outline-primary" title="Sản phẩm nổi bật" aria-label="Xem sản phẩm nổi bật">Khám phá</a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="hero-stat"><h3>50+</h3><span>Đồ uống</span></div>
+                            <div class="hero-stat"><h3>10K+</h3><span>Khách hàng</span></div>
+                            <div class="hero-stat"><h3>4.9★</h3><span>Đánh giá</span></div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="assets/images/banner/hero-coffee.png" alt="Coffee Banner" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURE -->
+        <section class="feature-section">
+            <div class="container">
+                <div class="grid grid-4">
+                    <article class="feature-item">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <h4>Giao hàng nhanh</h4>
+                        <p>Trong vòng 30 phút</p>
+                    </article>
+                    <article class="feature-item">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        <h4>Cà phê nguyên chất</h4>
+                        <p>Chọn lọc từ nông trại</p>
+                    </article>
+                    <article class="feature-item">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <h4>Thanh toán dễ dàng</h4>
+                        <p>Nhiều phương thức</p>
+                    </article>
+                    <article class="feature-item">
+                        <i class="fa-solid fa-headset"></i>
+                        <h4>Hỗ trợ 24/7</h4>
+                        <p>Luôn sẵn sàng phục vụ</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY -->
+        <section class="category-section section" id="category">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Danh mục</span>
+                    <h2 class="section-title">Khám phá đồ uống yêu thích</h2>
+                    <p class="section-description">Chọn món đồ uống phù hợp với sở thích của bạn từ nhiều danh mục hấp dẫn.</p>
+                </div>
+                <div class="grid grid-4" id="categoryContainer">
+                    <article class="category-card">
+                        <img src="assets/images/category/coffee.png" alt="Cà phê" loading="lazy">
+                        <h3>Cà phê</h3>
+                        <p>18 sản phẩm</p>
+                    </article>
+                    <article class="category-card">
+                        <img src="assets/images/category/milk-tea.png" alt="Trà sữa" loading="lazy">
+                        <h3>Trà sữa</h3>
+                        <p>14 sản phẩm</p>
+                    </article>
+                    <article class="category-card">
+                        <img src="assets/images/category/tea.png" alt="Trà trái cây" loading="lazy">
+                        <h3>Trà trái cây</h3>
+                        <p>12 sản phẩm</p>
+                    </article>
+                    <article class="category-card">
+                        <img src="assets/images/category/cake.png" alt="Bánh ngọt" loading="lazy">
+                        <h3>Bánh ngọt</h3>
+                        <p>10 sản phẩm</p>
+                    </article>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="menu.html" class="btn btn-primary" title="Xem toàn bộ thực đơn" aria-label="Xem toàn bộ thực đơn">Xem toàn bộ thực đơn</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEST SELLER -->
+        <section class="best-seller section" id="bestSeller">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Best Seller</span>
+                    <h2 class="section-title">Sản phẩm bán chạy</h2>
+                    <p class="section-description">Những món đồ uống được khách hàng yêu thích và đặt mua nhiều nhất.</p>
+                </div>
+                <div class="grid grid-4" id="bestSellerContainer">
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/products/coffee-latte.jpg" alt="Latte" loading="lazy">
+                            <span class="product-discount">-15%</span>
+                            <div class="product-actions">
+                                <button class="product-action" type="button" title="Yêu thích" aria-label="Thêm vào yêu thích"><i class="fa-regular fa-heart"></i></button>
+                                <button class="product-action" type="button" title="Xem nhanh" aria-label="Xem nhanh"><i class="fa-solid fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-category">Coffee</span>
+                            <h3 class="product-title">Latte Macchiato</h3>
+                            <div class="product-rating">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                <span>(128)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current">59.000đ</span>
+                                <span class="price-old">69.000đ</span>
+                            </div>
+                            <div class="product-bottom">
+                                <button class="btn btn-primary btn-sm" type="button">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- JavaScript sẽ render thêm sản phẩm tại đây -->
+                </div>
+                <div class="text-center mt-5">
+                    <a href="menu.html" class="btn btn-outline-primary" title="Xem thêm sản phẩm" aria-label="Xem thêm sản phẩm">Xem thêm sản phẩm</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMOTION -->
+        <section class="promotion-section section" id="promotion">
+            <div class="container">
+                <div class="grid grid-2">
+                    <article class="promotion-card">
+                        <div class="promotion-content">
+                            <span class="promotion-subtitle">Ưu đãi hôm nay</span>
+                            <h2 class="promotion-title">Giảm ngay 30%<br>cho tất cả Coffee</h2>
+                            <p class="promotion-description">Áp dụng cho tất cả đồ uống Coffee khi đặt trực tuyến trong hôm nay.</p>
+                            <a href="menu.html" class="btn btn-primary" title="Đặt ngay" aria-label="Đặt ngay">Đặt ngay</a>
+                        </div>
+                        <div class="promotion-image">
+                            <img src="assets/images/banner/promotion-coffee.png" alt="Coffee Promotion" loading="lazy">
+                        </div>
+                    </article>
+                    <article class="promotion-card secondary">
+                        <div class="promotion-content">
+                            <span class="promotion-subtitle">Combo tiết kiệm</span>
+                            <h2 class="promotion-title">Mua 2<br>Tặng 1</h2>
+                            <p class="promotion-description">Áp dụng với tất cả Trà sữa và Trà trái cây.</p>
+                            <a href="menu.html" class="btn btn-secondary" title="Khám phá" aria-label="Khám phá">Khám phá</a>
+                        </div>
+                        <div class="promotion-image">
+                            <img src="assets/images/banner/promotion-tea.png" alt="Promotion Tea" loading="lazy">
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEAL OF THE DAY -->
+        <section class="deal-section section">
+            <div class="container">
+                <div class="deal-wrapper">
+                    <div class="deal-image">
+                        <img src="assets/images/banner/deal.png" alt="Deal Of The Day" loading="lazy">
+                    </div>
+                    <div class="deal-content">
+                        <span class="section-subtitle">Deal Of The Day</span>
+                        <h2 class="section-title">Cold Brew Premium</h2>
+                        <p class="section-description">Hương vị cà phê Cold Brew nguyên chất, ưu đãi chỉ trong hôm nay.</p>
+                        <div class="countdown" id="dealCountdown">
+                            <div class="countdown-item"><span id="days">00</span><small>Ngày</small></div>
+                            <div class="countdown-item"><span id="hours">00</span><small>Giờ</small></div>
+                            <div class="countdown-item"><span id="minutes">00</span><small>Phút</small></div>
+                            <div class="countdown-item"><span id="seconds">00</span><small>Giây</small></div>
+                        </div>
+                        <div class="deal-price">
+                            <span class="price-current">49.000đ</span>
+                            <span class="price-old">69.000đ</span>
+                        </div>
+                        <button class="btn btn-primary">Mua ngay</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="about-section section" id="about">
+            <div class="container">
+                <div class="grid grid-2">
+                    <div class="about-image">
+                        <img src="assets/images/about/about-coffee.jpg" alt="Coffee TakeAway" loading="lazy">
+                    </div>
+                    <div class="about-content">
+                        <span class="section-subtitle">Về chúng tôi</span>
+                        <h2 class="section-title">Coffee TakeAway<br>Hương vị từ đam mê</h2>
+                        <p class="section-description">
+                            Coffee TakeAway được xây dựng với mong muốn mang đến
+                            những ly cà phê và đồ uống chất lượng, phục vụ nhanh,
+                            tiện lợi và luôn giữ được hương vị nguyên bản.
+                        </p>
+                        <p class="section-description">
+                            Chúng tôi lựa chọn nguyên liệu kỹ lưỡng, quy trình pha
+                            chế tiêu chuẩn cùng đội ngũ nhân viên tận tâm để mỗi
+                            sản phẩm đều mang đến trải nghiệm tốt nhất.
+                        </p>
+                        <div class="about-feature-list">
+                            <div class="about-feature"><i class="fa-solid fa-check"></i><span>100% nguyên liệu chất lượng</span></div>
+                            <div class="about-feature"><i class="fa-solid fa-check"></i><span>Pha chế theo tiêu chuẩn</span></div>
+                            <div class="about-feature"><i class="fa-solid fa-check"></i><span>Giao hàng nhanh chóng</span></div>
+                            <div class="about-feature"><i class="fa-solid fa-check"></i><span>Hỗ trợ khách hàng 24/7</span></div>
+                        </div>
+                        <a href="menu.html" class="btn btn-primary" title="Khám phá thực đơn" aria-label="Khám phá thực đơn">Xem thực đơn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="service-section section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Dịch vụ</span>
+                    <h2 class="section-title">Vì sao chọn Coffee TakeAway?</h2>
+                </div>
+                <div class="grid grid-4">
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-seedling"></i></div>
+                        <h3>Nguyên liệu sạch</h3>
+                        <p>Chọn lọc kỹ lưỡng từ những nhà cung cấp uy tín.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                        <h3>Pha chế chuyên nghiệp</h3>
+                        <p>Đảm bảo hương vị đồng nhất trong từng ly đồ uống.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                        <h3>Giao hàng nhanh</h3>
+                        <p>Phục vụ nhanh chóng với nhiều khu vực giao hàng.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
+                        <h3>Hỗ trợ 24/7</h3>
+                        <p>Luôn sẵn sàng giải đáp mọi thắc mắc của khách hàng.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL -->
+        <section class="testimonial-section section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Đánh giá</span>
+                    <h2 class="section-title">Khách hàng nói gì về chúng tôi</h2>
+                </div>
+                <div class="grid grid-3">
+                    <article class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p>Cà phê rất thơm, giao hàng nhanh. Mình sẽ tiếp tục ủng hộ.</p>
+                        <div class="testimonial-user">
+                            <img src="assets/images/users/user-1.jpg" alt="Nguyễn Văn A" loading="lazy">
+                            <div><h4>Nguyễn Văn A</h4><span>Khách hàng</span></div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p>Đồ uống ngon, giá hợp lý, nhân viên hỗ trợ rất nhiệt tình.</p>
+                        <div class="testimonial-user">
+                            <img src="assets/images/users/user-2.jpg" alt="Trần Thị B" loading="lazy">
+                            <div><h4>Trần Thị B</h4><span>Khách hàng</span></div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p>Website đẹp, đặt hàng rất dễ, giao đúng giờ.</p>
+                        <div class="testimonial-user">
+                            <img src="assets/images/users/user-3.jpg" alt="Lê Văn C" loading="lazy">
+                            <div><h4>Lê Văn C</h4><span>Khách hàng</span></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter section">
+            <div class="container">
+                <div class="newsletter-wrapper">
+                    <h2>Đăng ký nhận ưu đãi mới nhất</h2>
+                    <p>Nhận thông tin khuyến mãi và sản phẩm mới qua email.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Nhập email của bạn" aria-label="Email">
+                        <button type="submit" class="btn btn-primary">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="assets/images/logo/logo.png" alt="Coffee TakeAway">
+                        <h3>Coffee TakeAway</h3>
+                    </div>
+                    <p class="footer-desc">
+                        Mang đến trải nghiệm thưởng thức
+                        cà phê chất lượng với dịch vụ nhanh chóng
+                        và chuyên nghiệp.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Điều hướng</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Trang chủ</a>
+                        <a href="menu.html">Thực đơn</a>
+                        <a href="product.html">Sản phẩm</a>
+                        <a href="#about">Giới thiệu</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Hỗ trợ</h4>
+                    <div class="footer-links">
+                        <a href="#">Điều khoản</a>
+                        <a href="#">Chính sách</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Liên hệ</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Liên hệ</h4>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>1900 1234</span></div>
+                        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>coffeetakeaway@gmail.com</span></div>
+                        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>TP. Hồ Chí Minh</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-inner">
+                    <p>© 2026 Coffee TakeAway. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" title="Lên đầu trang" aria-label="Lên đầu trang">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
