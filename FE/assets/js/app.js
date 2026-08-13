@@ -1,5 +1,5 @@
-// ======================================
-// Coffee TakeAway — App Core
+﻿// ======================================
+// Bunny — App Core
 // Xử lý: preloader, header, search,
 //         mobile menu, back-to-top, cart count
 // ======================================

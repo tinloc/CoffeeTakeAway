@@ -45,7 +45,7 @@ app.use("/api/admin", adminRoutes);
 app.get("/", (req, res) => {
     res.json({
         success: true,
-        message: "Coffee TakeAway API",
+        message: "Bunny API",
         version: "1.0.0"
     });
 });

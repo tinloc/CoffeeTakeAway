@@ -1,580 +1,179 @@
-# ☕ Coffee TakeAway
+﻿# 🐰 Bunny
 
-<p align="center">
-  <b>Hệ thống Website đặt đồ uống trực tuyến</b>
-</p>
-
-## 📌 Giới thiệu dự án
-
-**Coffee TakeAway** là một hệ thống website bán đồ uống trực tuyến được xây dựng theo mô hình **Fullstack Web Application**.
-
-Dự án hỗ trợ khách hàng đặt các sản phẩm như:
-
-* ☕ Coffee
-* 🍵 Tea
-* 🧋 Freeze
-* 🍰 Cake
-* 🎁 Combo
-
-Thông qua hệ thống, khách hàng có thể:
-
-* Đăng ký tài khoản.
-* Đăng nhập.
-* Xem danh sách sản phẩm.
-* Xem chi tiết sản phẩm.
-* Chọn size, topping.
-* Thêm sản phẩm vào giỏ hàng.
-* Đặt hàng.
-* Theo dõi trạng thái đơn hàng.
-
-Quản trị viên có thể:
-
-* Quản lý sản phẩm.
-* Quản lý danh mục.
-* Quản lý đơn hàng.
-* Theo dõi doanh thu.
-* Quản lý người dùng.
+> Hệ thống Website đặt đồ uống trực tuyến — Bunny Coffee
 
 ---
 
-# 🎯 Mục tiêu dự án
+## 📌 Giới thiệu
 
-Dự án được xây dựng nhằm:
+**Bunny** là hệ thống website bán đồ uống trực tuyến xây dựng theo mô hình **Fullstack Web Application** (HTML/CSS/JS + Node.js + MySQL).
 
-* Áp dụng kiến thức lập trình Web Fullstack.
-* Xây dựng hệ thống bán hàng trực tuyến hoàn chỉnh.
-* Áp dụng mô hình MVC trong Backend.
-* Thiết kế cơ sở dữ liệu quan hệ MySQL.
-* Xây dựng RESTful API.
-* Quản lý xác thực người dùng bằng JWT.
+Khách hàng có thể:
 
----
+- Đăng ký / đăng nhập tài khoản
+- Xem thực đơn, tìm kiếm, lọc và sắp xếp sản phẩm
+- Xem chi tiết sản phẩm, chọn size & topping
+- Thêm vào giỏ hàng, đặt hàng, thanh toán
+- Theo dõi trạng thái & lịch sử đơn hàng
+- Quản lý thông tin tài khoản & mật khẩu
 
-# 🏗 Kiến trúc hệ thống
+Quản trị viên (Admin) có thể:
 
-Dự án sử dụng mô hình:
-
-```
-Client
- |
- | HTTP Request
- |
-Frontend (HTML/CSS/JavaScript)
- |
- | REST API
- |
-Backend (Node.js + Express)
- |
- | SQL Query
- |
-Database (MySQL)
-```
+- Xem Dashboard: tổng sản phẩm, đơn hàng, người dùng, doanh thu
+- Theo dõi doanh thu theo từng tháng
+- Quản lý sản phẩm: thêm, sửa, ẩn/hiện, xoá
+- Quản lý danh mục: thêm, sửa
+- Quản lý đơn hàng: xem danh sách, cập nhật trạng thái
+- Quản lý người dùng: xem danh sách, khoá/mở khoá tài khoản
 
 ---
 
-# 🛠 Công nghệ sử dụng
+## 🛠 Công nghệ sử dụng
 
-## Frontend
-
-| Công nghệ      | Mục đích           |
-| -------------- | ------------------ |
-| HTML5          | Xây dựng giao diện |
-| CSS3           | Thiết kế giao diện |
-| JavaScript ES6 | Xử lý chức năng    |
-| Fetch API      | Gọi API Backend    |
-
----
-
-## Backend
-
-| Công nghệ  | Mục đích                |
-| ---------- | ----------------------- |
-| Node.js    | Môi trường chạy server  |
-| Express.js | Xây dựng REST API       |
-| MySQL2     | Kết nối Database        |
-| JWT        | Authentication          |
-| Bcrypt     | Mã hóa mật khẩu         |
-| Multer     | Upload hình ảnh         |
-| Dotenv     | Quản lý biến môi trường |
+| Lớp      | Công nghệ                                 |
+| -------- | ----------------------------------------- |
+| Frontend | HTML5, CSS3, JavaScript ES6, Fetch API    |
+| Backend  | Node.js, Express.js                       |
+| Database | MySQL 8.0+                                |
+| Auth     | JWT (jsonwebtoken)                        |
+| Security | bcryptjs, helmet, cors                    |
+| Upload   | Multer (ảnh sản phẩm, danh mục)           |
+| Dev tool | nodemon, dotenv                           |
 
 ---
 
-## Database
+## 📂 Cấu trúc thư mục
 
-| Công nghệ | Phiên bản          |
-| --------- | ------------------ |
-| MySQL     | 8.0+               |
-| Charset   | utf8mb4            |
-| Collation | utf8mb4_unicode_ci |
-
----
-
-# 📂 Cấu trúc thư mục dự án
-
-```
-CoffeeTakeAway
-
-│
+```text
+CoffeeTakeAway/
 ├── README.md
-│
-├── BE
-│   │
-│   ├── src
-│   │   │
-│   │   ├── config
-│   │   │   └── database.js
-│   │   │
-│   │   ├── controllers
-│   │   │
-│   │   ├── models
-│   │   │
-│   │   ├── services
-│   │   │
-│   │   ├── routes
-│   │   │
-│   │   ├── middleware
-│   │   │
-│   │   └── utils
-│   │
+├── start.ps1
+├── BE/
+│   ├── server.js
 │   ├── package.json
-│   └── server.js
-│
-│
-├── FE
-│
-│   ├── index.html
+│   ├── .env.example
+│   └── src/
+│       ├── app.js
+│       ├── config/        (db.js, jwt.js, multer.js)
+│       ├── controllers/
+│       ├── middleware/    (auth, admin)
+│       ├── models/
+│       ├── routes/
+│       ├── services/
+│       └── utils/
+├── FE/
+│   ├── index.html         (Trang chủ)
+│   ├── menu.html          (Thực đơn)
+│   ├── product.html       (Chi tiết sản phẩm)
+│   ├── cart.html          (Giỏ hàng)
+│   ├── checkout.html      (Thanh toán)
+│   ├── orders.html        (Đơn hàng của tôi)
+│   ├── profile.html       (Tài khoản)
 │   ├── login.html
 │   ├── register.html
-│   ├── menu.html
-│   ├── product.html
-│   ├── cart.html
-│   ├── checkout.html
-│   ├── orders.html
-│   └── profile.html
-│
-│
-├── database
-│   └── coffeetakeaway.sql
-│
-│
-└── mobile
-
+│   ├── admin.html         (Quản trị — role_id = 1)
+│   └── assets/
+│       ├── css/           (style, components, admin, ...)
+│       ├── js/            (api, app, admin, cart, ...)
+│       └── images/        (logo, products, categories, ...)
+├── database/
+│   └── takeaway.sql
+└── mobile/
 ```
 
 ---
 
-# 🔥 Backend Architecture
+## 🚀 Hướng dẫn cài đặt
 
-Backend được xây dựng theo mô hình MVC:
+### 1. Chuẩn bị database
 
-```
-Request
-
-   ↓
-
-Routes
-
-   ↓
-
-Controller
-
-   ↓
-
-Service
-
-   ↓
-
-Model
-
-   ↓
-
-Database
-
+```sql
+CREATE DATABASE takeaway CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- Import file: database/takeaway.sql
 ```
 
-## Ví dụ Auth Module
-
-```
-auth.routes.js
-
-        ↓
-
-auth.controller.js
-
-        ↓
-
-auth.service.js
-
-        ↓
-
-auth.model.js
-
-        ↓
-
-MySQL users table
-
-```
-
----
-
-# 🔐 Authentication
-
-Hệ thống sử dụng JWT Token để xác thực người dùng.
-
-## Đăng ký
-
-Endpoint:
-
-```
-POST /api/auth/register
-```
-
-Request:
-
-```json
-{
-    "full_name":"Nguyen Van A",
-    "email":"user@gmail.com",
-    "password":"123456"
-}
-```
-
----
-
-## Đăng nhập
-
-Endpoint:
-
-```
-POST /api/auth/login
-```
-
-Request:
-
-```json
-{
-    "email":"user@gmail.com",
-    "password":"123456"
-}
-```
-
-Response:
-
-```json
-{
-    "success":true,
-    "message":"Đăng nhập thành công",
-    "data":{
-        "token":"JWT_TOKEN"
-    }
-}
-```
-
-Token được sử dụng để truy cập các API yêu cầu quyền.
-
----
-
-# 🗄 Database Design
-
-Database gồm các nhóm chức năng:
-
-## 👤 User Management
-
-Các bảng:
-
-```
-roles
-
-users
-
-addresses
-
-activity_logs
-```
-
-Chức năng:
-
-* Phân quyền Admin / Customer.
-* Quản lý thông tin tài khoản.
-* Lưu lịch sử hoạt động.
-
----
-
-## ☕ Product Management
-
-Các bảng:
-
-```
-categories
-
-products
-
-product_images
-
-sizes
-
-product_sizes
-
-toppings
-
-product_toppings
-```
-
-Chức năng:
-
-* Quản lý sản phẩm.
-* Quản lý danh mục.
-* Quản lý size.
-* Quản lý topping.
-
----
-
-## 🛒 Shopping Cart
-
-Các bảng:
-
-```
-cart
-
-cart_items
-
-cart_item_toppings
-```
-
-Chức năng:
-
-* Lưu sản phẩm khách hàng chọn.
-* Cập nhật số lượng.
-* Lưu topping.
-
----
-
-## 📦 Order Management
-
-Các bảng:
-
-```
-orders
-
-order_items
-
-payments
-```
-
-Chức năng:
-
-* Tạo đơn hàng.
-* Quản lý thanh toán.
-* Theo dõi trạng thái đơn.
-
----
-
-## ⭐ Advanced Features
-
-Các bảng:
-
-```
-reviews
-
-favorites
-
-notifications
-
-coupons
-
-banners
-
-settings
-```
-
-Bao gồm:
-
-* Đánh giá sản phẩm.
-* Yêu thích sản phẩm.
-* Mã giảm giá.
-* Thông báo.
-* Quản lý banner.
-
----
-
-# 🚀 Cài đặt dự án
-
-## 1. Clone project
-
-```bash
-git clone <repository-url>
-```
-
----
-
-# Backend Setup
-
-Đi vào thư mục:
+### 2. Cấu hình môi trường
 
 ```bash
 cd BE
+copy .env.example .env
+# Mở .env và điền thông tin MySQL + JWT
 ```
 
-Cài đặt package:
+### 3. Cài đặt dependencies
 
 ```bash
+cd BE
 npm install
 ```
 
-Tạo file:
-
-```
-.env
-```
-
-Ví dụ:
-
-```env
-PORT=3000
-
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=root
-DB_PASSWORD=
-
-DB_NAME=coffeetakeaway
-
-JWT_SECRET=coffee_secret
-```
-
-Chạy Backend:
+### 4. Khởi động server
 
 ```bash
-npm start
+npm run dev    # development (nodemon)
+npm start      # production
 ```
 
-Server chạy:
+Server chạy tại: <http://localhost:3000>
 
-```
-http://localhost:3000
+> Frontend được serve tự động bởi Express.
+
+---
+
+## 🔑 Tài khoản admin
+
+Tài khoản phải có `role_id = 1` trong database:
+
+```sql
+UPDATE users SET role_id = 1 WHERE email = 'your@email.com';
 ```
 
 ---
 
-# Database Setup
+## 📡 API Endpoints
 
-Import file:
+### Auth
 
-```
-database/coffeetakeaway.sql
-```
+| Method | Endpoint             | Mô tả    |
+| ------ | -------------------- | -------- |
+| POST   | `/api/auth/register` | Đăng ký  |
+| POST   | `/api/auth/login`    | Đăng nhập|
 
-Có thể sử dụng:
+### Products (Public)
 
-* MySQL Workbench
-* phpMyAdmin
-* XAMPP
+| Method | Endpoint                    | Mô tả              |
+| ------ | --------------------------- | ------------------ |
+| GET    | `/api/products`             | Danh sách sản phẩm |
+| GET    | `/api/products/:id/detail`  | Chi tiết sản phẩm  |
+| GET    | `/api/products/featured`    | Sản phẩm nổi bật   |
+| GET    | `/api/products/search?q=`   | Tìm kiếm           |
 
----
+### Admin (yêu cầu role\_id = 1)
 
-# Frontend Setup
-
-Truy cập:
-
-```
-FE/
-```
-
-Chạy bằng:
-
-* VS Code Live Server
-
-hoặc mở:
-
-```
-index.html
-```
-
----
-
-# 📡 API hiện tại
-
-## Authentication
-
-| Method | API                | Chức năng |
-| ------ | ------------------ | --------- |
-| POST   | /api/auth/register | Đăng ký   |
-| POST   | /api/auth/login    | Đăng nhập |
+| Method          | Endpoint                       | Mô tả                       |
+| --------------- | ------------------------------ | --------------------------- |
+| GET             | `/api/admin/dashboard`         | Thống kê tổng quan          |
+| GET             | `/api/admin/revenue`           | Doanh thu theo tháng        |
+| GET/POST        | `/api/admin/products`          | Danh sách / Thêm sản phẩm   |
+| PUT/PATCH/DELETE| `/api/admin/products/:id`      | Sửa / Toggle / Xoá sản phẩm |
+| GET/POST        | `/api/admin/categories`        | Danh sách / Thêm danh mục   |
+| PUT             | `/api/admin/categories/:id`    | Sửa danh mục                |
+| GET             | `/api/admin/orders`            | Danh sách đơn hàng          |
+| PUT             | `/api/admin/orders/:id/status` | Cập nhật trạng thái đơn     |
+| GET             | `/api/admin/users`             | Danh sách người dùng        |
+| PUT             | `/api/admin/users/:id/block`   | Khoá tài khoản              |
+| PUT             | `/api/admin/users/:id/unblock` | Mở khoá tài khoản           |
 
 ---
 
-# 📌 Roadmap phát triển
+## 🏗 Kiến trúc Backend (MVC)
 
-## Phase 1 - Core System
-
-✅ Database Design
-
-✅ Backend MVC Structure
-
-✅ JWT Authentication
-
----
-
-## Phase 2 - Product System
-
-⬜ Product API
-
-⬜ Category API
-
-⬜ Product Detail
-
-⬜ Menu Page
-
----
-
-## Phase 3 - Shopping System
-
-⬜ Cart API
-
-⬜ Checkout
-
-⬜ Order API
-
-⬜ Payment
-
----
-
-## Phase 4 - Admin System
-
-⬜ Dashboard
-
-⬜ Product Management
-
-⬜ User Management
-
-⬜ Revenue Statistics
-
----
-
-# 👨‍💻 Developer
-
-**Trần Tín Lộc**
-
-Project:
-
-```
-Coffee TakeAway
-```
-
-Version:
-
-```
-1.0
+```text
+HTTP Request → Routes → Middleware → Controller → Service → Model → MySQL
 ```
 
 ---
 
-# 📄 License
+## 👨‍💻 Tác giả
 
-Project được phát triển với mục đích:
-
-* Học tập.
-* Nghiên cứu.
-* Đồ án môn học.
-
-Không sử dụng cho mục đích thương mại.
+Dự án học tập — Bunny Coffee © 2026

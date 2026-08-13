@@ -1,7 +1,7 @@
 {
-  "name": "coffee-takeaway",
+  "name": "bunny",
   "version": "1.0.0",
-  "description": "Coffee TakeAway Backend API",
+  "description": "Bunny Backend API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,7 +10,6 @@
   "author": "Tran Tin Loc",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",

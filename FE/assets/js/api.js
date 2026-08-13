@@ -1,5 +1,5 @@
-// ======================================
-// Coffee TakeAway API Configuration
+﻿// ======================================
+// Bunny API Configuration
 // ======================================
 
 const API = {
@@ -9,9 +9,12 @@ const API = {
     AUTH: {
         LOGIN: "/auth/login",
         REGISTER: "/auth/register",
-        PROFILE: "/auth/profile",
-        CHANGE_PASSWORD: "/auth/change-password",
         LOGOUT: "/auth/logout"
+    },
+
+    USERS: {
+        PROFILE: "/users/profile",
+        CHANGE_PASSWORD: "/users/change-password"
     },
 
     CATEGORY: {
@@ -20,16 +23,24 @@ const API = {
 
     PRODUCT: {
         LIST: "/products",
-        DETAIL: "/products"
+        DETAIL: "/products",
+        SEARCH: "/products/search",
+        FEATURED: "/products/featured",
+        NEWEST: "/products/newest",
+        BEST_SELLING: "/products/best-selling"
     },
 
     CART: {
         LIST: "/cart",
-        ADD: "/cart/add"
+        ADD: "/cart/add",
+        UPDATE: "/cart/item",
+        REMOVE: "/cart/item",
+        CLEAR: "/cart/clear"
     },
 
     ORDER: {
-        LIST: "/orders"
+        LIST: "/orders",
+        CHECKOUT: "/orders/checkout"
     }
 
 };

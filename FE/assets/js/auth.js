@@ -1,5 +1,5 @@
-// ======================================
-// Coffee TakeAway Authentication
+﻿// ======================================
+// Bunny Authentication
 // ======================================
 
 const loginForm = document.getElementById("loginForm");

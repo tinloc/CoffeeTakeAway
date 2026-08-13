@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunny | Quản trị</title>
+    <link rel="icon" type="image/png" href="assets/images/logo/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+<!-- ─── SIDEBAR ─────────────────────────────────────── -->
+<aside id="sidebar">
+    <div class="sidebar-brand">
+        <img src="assets/images/logo/logo.png" alt="Bunny">
+        <span>Bunny Admin</span>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a class="nav-item active" data-page="dashboard">
+            <i class="fa-solid fa-gauge-high"></i> Dashboard
+        </a>
+        <a class="nav-item" data-page="products">
+            <i class="fa-solid fa-mug-hot"></i> Sản phẩm
+        </a>
+        <a class="nav-item" data-page="categories">
+            <i class="fa-solid fa-layer-group"></i> Danh mục
+        </a>
+        <a class="nav-item" data-page="orders">
+            <i class="fa-solid fa-box"></i> Đơn hàng
+        </a>
+        <a class="nav-item" data-page="users">
+            <i class="fa-solid fa-users"></i> Người dùng
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Về trang chủ</a>
+    </div>
+</aside>
+
+<!-- ─── MAIN ─────────────────────────────────────────── -->
+<main id="adminMain">
+
+    <!-- Topbar -->
+    <header class="admin-topbar">
+        <button id="sidebarToggle" type="button" title="Menu"><i class="fa-solid fa-bars"></i></button>
+        <h2 id="pageTitle">Dashboard</h2>
+        <div class="topbar-user">
+            <div class="topbar-avatar" id="topbarAvatar">A</div>
+            <span id="topbarName">Admin</span>
+        </div>
+    </header>
+
+    <div class="admin-content">
+
+        <!-- ─── DASHBOARD ───────────────────────────── -->
+        <section id="page-dashboard" class="page-section active">
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">☕</div>
+                    <div class="stat-value" id="statProducts">—</div>
+                    <div class="stat-label">Sản phẩm</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-value" id="statOrders">—</div>
+                    <div class="stat-label">Tổng đơn</div>
+                </div>
+                <div class="stat-card orange">
+                    <div class="stat-icon">⏳</div>
+                    <div class="stat-value" id="statPending">—</div>
+                    <div class="stat-label">Chờ xử lý</div>
+                </div>
+                <div class="stat-card blue">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-value" id="statUsers">—</div>
+                    <div class="stat-label">Người dùng</div>
+                </div>
+                <div class="stat-card red">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-value" id="statRevenue">—</div>
+                    <div class="stat-label">Doanh thu</div>
+                </div>
+            </div>
+
+            <div class="revenue-section">
+                <div class="section-title"><i class="fa-solid fa-chart-line"></i> Doanh thu theo tháng</div>
+                <div class="table-card">
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tháng</th>
+                                    <th>Số đơn hoàn thành</th>
+                                    <th>Doanh thu</th>
+                                </tr>
+                            </thead>
+                            <tbody id="revenueTable"><tr><td colspan="3" class="td-loading">Đang tải...</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ─── PRODUCTS ─────────────────────────────── -->
+        <section id="page-products" class="page-section">
+
+            <div class="section-toolbar">
+                <input type="search" id="productSearch" class="search-input" placeholder="Tìm sản phẩm...">
+                <button class="btn btn-primary" id="btnAddProduct" type="button">
+                    <i class="fa-solid fa-plus"></i> Thêm sản phẩm
+                </button>
+            </div>
+
+            <div class="table-card">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ảnh</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Danh mục</th>
+                                <th>Giá gốc</th>
+                                <th>Nổi bật</th>
+                                <th>Trạng thái</th>
+                                <th>Đã bán</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productTableBody">
+                            <tr><td colspan="9" class="td-loading">Đang tải...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ─── CATEGORIES ───────────────────────────── -->
+        <section id="page-categories" class="page-section">
+
+            <div class="section-toolbar">
+                <button class="btn btn-primary" id="btnAddCategory" type="button">
+                    <i class="fa-solid fa-plus"></i> Thêm danh mục
+                </button>
+            </div>
+
+            <div class="table-card">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ảnh</th>
+                                <th>Tên danh mục</th>
+                                <th>Mô tả</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoryTableBody">
+                            <tr><td colspan="6" class="td-loading">Đang tải...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ─── ORDERS ───────────────────────────────── -->
+        <section id="page-orders" class="page-section">
+
+            <div class="section-toolbar">
+                <select id="orderStatusFilter" class="form-select filter-select-sm" title="Lọc theo trạng thái">
+                    <option value="">Tất cả trạng thái</option>
+                    <option value="Pending">Chờ xác nhận</option>
+                    <option value="Processing">Đang xử lý</option>
+                    <option value="Shipping">Đang giao</option>
+                    <option value="Delivered">Đã giao</option>
+                    <option value="Cancelled">Đã huỷ</option>
+                </select>
+            </div>
+
+            <div class="table-card">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã đơn</th>
+                                <th>Khách hàng</th>
+                                <th>Tổng tiền</th>
+                                <th>Thanh toán</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày đặt</th>
+                                <th>Cập nhật</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderTableBody">
+                            <tr><td colspan="7" class="td-loading">Đang tải...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ─── USERS ────────────────────────────────── -->
+        <section id="page-users" class="page-section">
+
+            <div class="section-toolbar">
+                <input type="search" id="userSearch" class="search-input" placeholder="Tìm người dùng...">
+            </div>
+
+            <div class="table-card">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Họ tên</th>
+                                <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày tạo</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                            <tr><td colspan="7" class="td-loading">Đang tải...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+    </div><!-- /admin-content -->
+</main>
+
+<!-- ─── MODAL ────────────────────────────────────────── -->
+<div class="modal-overlay d-none" id="modalOverlay">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="modalTitle">Modal</h3>
+            <button class="modal-close" id="modalClose" type="button">×</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-footer" id="modalFooter">
+            <button class="btn btn-outline" id="modalCancel" type="button">Huỷ</button>
+            <button class="btn btn-primary" id="modalConfirm" type="button">Lưu</button>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

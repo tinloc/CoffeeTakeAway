@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,600;1,700&display=swap");
+
 *{
     margin:0;
     padding:0;
@@ -43,11 +45,41 @@ body{
 
 }
 
+.logo img{
+
+    width:80px;
+
+    height:80px;
+
+    object-fit:contain;
+
+    margin-bottom:10px;
+
+    filter:drop-shadow(0 4px 14px rgba(111,78,55,.22));
+
+    transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);
+
+}
+
+.logo img:hover{
+
+    transform:scale(1.08) rotate(-6deg);
+
+}
+
 .logo h1{
+
+    font-family:'Fraunces',serif;
+
+    font-style:italic;
 
     color:#6F4E37;
 
-    margin-bottom:10px;
+    font-size:30px;
+
+    margin-bottom:8px;
+
+    letter-spacing:-0.4px;
 
 }
 

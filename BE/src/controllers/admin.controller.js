@@ -186,3 +186,72 @@ exports.updateOrderStatus = async (req, res) => {
     }
 
 };
+
+// ======================================
+// Products
+// ======================================
+exports.getProducts = async (req, res) => {
+    try {
+        res.json({ success: true, data: await adminService.getProducts() });
+    } catch (err) { res.status(500).json({ success: false, message: err.message }); }
+};
+
+exports.createProduct = async (req, res) => {
+    try {
+        const id = await adminService.createProduct(req.body, req.file?.filename || null);
+        res.status(201).json({ success: true, message: "Thêm sản phẩm thành công.", data: { product_id: id } });
+    } catch (err) { res.status(400).json({ success: false, message: err.message }); }
+};
+
+exports.updateProduct = async (req, res) => {
+    try {
+        await adminService.updateProduct(req.params.id, req.body, req.file?.filename || null);
+        res.json({ success: true, message: "Cập nhật sản phẩm thành công." });
+    } catch (err) { res.status(400).json({ success: false, message: err.message }); }
+};
+
+exports.toggleProduct = async (req, res) => {
+    try {
+        await adminService.toggleProductAvailability(req.params.id);
+        res.json({ success: true, message: "Đã cập nhật trạng thái." });
+    } catch (err) { res.status(400).json({ success: false, message: err.message }); }
+};
+
+exports.deleteProduct = async (req, res) => {
+    try {
+        await adminService.deleteProduct(req.params.id);
+        res.json({ success: true, message: "Đã xoá sản phẩm." });
+    } catch (err) { res.status(400).json({ success: false, message: err.message }); }
+};
+
+// ======================================
+// Categories
+// ======================================
+exports.getCategories = async (req, res) => {
+    try {
+        res.json({ success: true, data: await adminService.getCategories() });
+    } catch (err) { res.status(500).json({ success: false, message: err.message }); }
+};
+
+exports.createCategory = async (req, res) => {
+    try {
+        const id = await adminService.createCategory(req.body, req.file?.filename || null);
+        res.status(201).json({ success: true, message: "Thêm danh mục thành công.", data: { category_id: id } });
+    } catch (err) { res.status(400).json({ success: false, message: err.message }); }
+};
+
+exports.updateCategory = async (req, res) => {
+    try {
+        await adminService.updateCategory(req.params.id, req.body, req.file?.filename || null);
+        res.json({ success: true, message: "Cập nhật danh mục thành công." });
+    } catch (err) { res.status(400).json({ success: false, message: err.message }); }
+};
+
+// ======================================
+// Revenue by month
+// ======================================
+exports.getRevenue = async (req, res) => {
+    try {
+        res.json({ success: true, data: await adminService.getRevenueByMonth() });
+    } catch (err) { res.status(500).json({ success: false, message: err.message }); }
+};
