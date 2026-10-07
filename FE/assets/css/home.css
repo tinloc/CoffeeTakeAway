@@ -48,7 +48,9 @@
 
 .hero {
     padding: 0;
-    background: linear-gradient(135deg, #fdf8f4 0%, #f5ece3 50%, #ede3d6 100%);
+    background:
+        linear-gradient(120deg, rgba(63, 41, 35, .94), rgba(111, 78, 55, .82)),
+        url("../images/banner/hero-coffee.png") center / cover;
     min-height: calc(100vh - 122px);
     display: flex;
     align-items: center;
@@ -63,7 +65,7 @@
     right: -200px;
     width: 700px;
     height: 700px;
-    background: radial-gradient(circle, rgba(212, 163, 115, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(240, 216, 184, 0.22) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -95,6 +97,18 @@
 .hero-content {
     position: relative;
     z-index: 1;
+}
+
+.hero-title,
+.hero-description,
+.hero-stat span {
+    color: #fff;
+}
+
+.hero-subtitle {
+    background: rgba(240, 216, 184, .16);
+    color: var(--secondary-light);
+    border: 1px solid rgba(240, 216, 184, .3);
 }
 
 .hero-subtitle {
@@ -190,7 +204,7 @@
     position: relative;
     z-index: 1;
     animation: heroFloat 6s ease-in-out infinite;
-    filter: drop-shadow(0 30px 60px rgba(111, 78, 55, 0.2));
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, .35));
 }
 
 @keyframes heroFloat {

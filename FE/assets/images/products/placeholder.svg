@@ -1,7 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <rect width="200" height="200" fill="#F5EDE4"/>
-  <path d="M75 75 L85 140 L115 140 L125 75 Z" fill="#D4A373" opacity=".45"/>
-  <rect x="68" y="68" width="64" height="12" rx="5" fill="#C4946A" opacity=".6"/>
-  <path d="M125 88 Q148 88 148 103 Q148 118 125 118" stroke="#B89078" stroke-width="5" fill="none" stroke-linecap="round"/>
-  <text x="100" y="168" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#B0967A">Chưa có ảnh</text>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f3ede7"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="900" fill="url(#bg)"/>
+  <circle cx="450" cy="450" r="260" fill="#e7d4b8" opacity="0.5"/>
+  <rect x="180" y="430" width="540" height="300" rx="26" fill="#8d684d" fill-opacity="0.9"/>
+  <rect x="250" y="350" width="400" height="80" rx="18" fill="#fff" fill-opacity="0.9"/>
+  <path d="M333 245 C325 180, 390 160, 408 215" stroke="#f0d7a5" stroke-width="10" fill="none"/>
+  <path d="M450 245 C442 180, 510 160, 527 215" stroke="#f0d7a5" stroke-width="10" fill="none"/>
+  <path d="M567 245 C559 180, 624 160, 642 215" stroke="#f0d7a5" stroke-width="10" fill="none"/>
+  <text x="450" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" fill="#4e352a" font-weight="700">Bunny</text>
+  <text x="450" y="790" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#4e352a">Demo image</text>
 </svg>

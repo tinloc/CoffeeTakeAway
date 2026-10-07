@@ -49,7 +49,12 @@ const login = async (req, res) => {
     }
 };
 
+const logout = async (req, res) => {
+    return Response.success(res, "Đăng xuất thành công");
+};
+
 module.exports = {
     register,
-    login
+    login,
+    logout
 };

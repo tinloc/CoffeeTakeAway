@@ -4,16 +4,24 @@
 // Bunny — Admin Panel
 // =============================================
 
-const BASE = "http://localhost:3000/api/admin";
+const BASE = (() => {
+    if (typeof window !== "undefined" && window.location && window.location.origin && window.location.origin !== "null") {
+        return `${window.location.origin}/api/admin`;
+    }
+    return "http://localhost:3000/api/admin";
+})();
 
 // Auth guard — chỉ cho role_id = 1
 (function guard() {
+    window.adminAuthorized = false;
     const token = localStorage.getItem("token");
     const user  = JSON.parse(localStorage.getItem("user") || "null");
     if (!token || !user || user.role_id !== 1) {
         alert("Bạn không có quyền truy cập trang này.");
-        location.href = "login.html";
+        location.replace("login.html");
+        return;
     }
+    window.adminAuthorized = true;
     const nameEl = document.getElementById("topbarName");
     const avatarEl = document.getElementById("topbarAvatar");
     if (nameEl) nameEl.textContent = user?.full_name || "Admin";
@@ -383,9 +391,10 @@ let allOrders = [];
 
 const ORDER_STATUS_MAP = {
     Pending:    { label: "Chờ xác nhận", cls: "badge-warning" },
-    Processing: { label: "Đang xử lý",   cls: "badge-info" },
-    Shipping:   { label: "Đang giao",    cls: "badge-brown" },
-    Delivered:  { label: "Đã giao",      cls: "badge-success" },
+    Confirmed:  { label: "Đã xác nhận",  cls: "badge-info" },
+    Preparing:  { label: "Đang pha chế", cls: "badge-brown" },
+    Delivering: { label: "Đang giao",    cls: "badge-brown" },
+    Completed:  { label: "Đã hoàn tất",  cls: "badge-success" },
     Cancelled:  { label: "Đã huỷ",       cls: "badge-danger" }
 };
 
@@ -523,4 +532,4 @@ document.getElementById("modalOverlay")?.addEventListener("click", (e) => {
 
 // ─── Init ─────────────────────────────────────────────
 
-loadDashboard();
+if (window.adminAuthorized) loadDashboard();

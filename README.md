@@ -88,7 +88,7 @@ CoffeeTakeAway/
 ### 1. Chuẩn bị database
 
 ```sql
-CREATE DATABASE takeaway CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE coffeetakeaway CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 -- Import file: database/takeaway.sql
 ```
 

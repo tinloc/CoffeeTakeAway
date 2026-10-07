@@ -51,13 +51,13 @@ async function loadBestSellers() {
         container.innerHTML = products.map(p => {
             const img   = p.thumbnail
                 ? "assets/images/products/" + p.thumbnail
-                : "assets/images/products/placeholder.jpg";
+                : "assets/images/products/placeholder.svg";
             const price = formatCurrency(parseFloat(p.base_price));
             return `
             <article class="product-card">
                 <div class="product-image">
                     <img src="${img}" alt="${p.product_name}" loading="lazy"
-                         onerror="this.src='assets/images/products/placeholder.jpg'">
+                         onerror="this.src='assets/images/products/placeholder.svg'">
                     <div class="product-actions">
                         <button class="product-action" type="button" title="Xem chi tiết"
                                 onclick="location.href='product.html?id=${p.product_id}'">

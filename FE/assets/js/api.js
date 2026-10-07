@@ -4,7 +4,12 @@
 
 const API = {
 
-    BASE_URL: "http://localhost:3000/api",
+    BASE_URL: (() => {
+        if (typeof window !== "undefined" && window.location && window.location.origin && window.location.origin !== "null") {
+            return `${window.location.origin}/api`;
+        }
+        return "http://localhost:3000/api";
+    })(),
 
     AUTH: {
         LOGIN: "/auth/login",

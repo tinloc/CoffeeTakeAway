@@ -19,11 +19,11 @@
     /* ========= BRAND ========= */
 
     --primary:#6F4E37;
-    --primary-light:#8B5E3C;
-    --primary-dark:#4B2E2B;
+    --primary-light:#9A6A45;
+    --primary-dark:#3F2923;
 
     --secondary:#D4A373;
-    --secondary-light:#E6C7A4;
+    --secondary-light:#F0D8B8;
 
     /* ========= STATUS ========= */
 
@@ -51,11 +51,11 @@
 
     /* ========= BACKGROUND ========= */
 
-    --body-bg:#F7F5F2;
+    --body-bg:#F5F1EC;
 
     --card-bg:#FFFFFF;
 
-    --section-bg:#FCFBF9;
+    --section-bg:#FBF8F4;
 
     /* ========= TEXT ========= */
 

@@ -9,8 +9,8 @@
     --brand:    #6F4E37;
     --brand-dk: #4B2E2B;
     --accent:   #D4A373;
-    --sidebar-bg: #1E100A;
-    --body-bg:  #F3EDE8;
+    --sidebar-bg: #3F2923;
+    --body-bg:  #F5F1EC;
     --white:    #FFFFFF;
     --gray-100: #F8F6F4;
     --gray-200: #EEEBE8;
@@ -21,7 +21,7 @@
     --warning:  #D97706;
     --info:     #0E7490;
     --radius:   10px;
-    --shadow:   0 2px 12px rgba(0,0,0,.08);
+    --shadow:   0 8px 24px rgba(63,41,35,.08);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -150,6 +150,12 @@ body {
 
 .admin-content { padding: 24px 28px; flex: 1; }
 
+.page-section { animation: adminPageIn .25s ease both; }
+@keyframes adminPageIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* ─── Stat Cards ────────────────────────────────────── */
 
 .stat-grid {
@@ -168,7 +174,9 @@ body {
     flex-direction: column;
     gap: 8px;
     border-top: 3px solid var(--brand);
+    transition: transform .2s ease, box-shadow .2s ease;
 }
+.stat-card:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(63,41,35,.12); }
 .stat-card.green  { border-top-color: var(--success); }
 .stat-card.orange { border-top-color: var(--warning); }
 .stat-card.red    { border-top-color: var(--danger); }
@@ -199,6 +207,7 @@ body {
     transition: border-color .2s;
 }
 .search-input:focus { border-color: var(--brand); }
+.search-input:focus, .form-control:focus, .form-select:focus { box-shadow: 0 0 0 3px rgba(212,163,115,.2); }
 
 .btn { padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; transition: all .2s; }
 .btn-primary { background: var(--brand); color: #fff; }
